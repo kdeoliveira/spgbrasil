@@ -1,0 +1,40 @@
+<svg id="logo" version="1.1" viewBox="0 0 120.14 108.5" xmlns="http://www.w3.org/2000/svg">
+<defs>
+    <style type="text/css">
+        .line{
+            <!-- Group default stroke lines -->
+            fill:#fff;
+            stroke:#000;
+            stroke-linecap:round;
+            stroke-width:.037888;
+
+            stroke-dasharray: 50;
+            stroke-dashoffset: 0;
+            -webkit-animation: dash 5s linear forwards;
+            -o-animation: dash 5s linear forwards;
+            -moz-animation: dash 5s linear forwards;
+            animation: dash 5s linear forwards;
+        }
+        @-webkit-keyframes dash{
+            from{
+                stroke-dashoffset: 50;
+            }
+            to{
+                stroke-dashoffset: 25;
+            }
+        }
+        #logo:hover .line{
+            fill: #000;
+            transition: .8s;
+        }
+    </style>
+</defs>
+ <g transform="translate(-87.372 -78.725)">
+  <g transform="matrix(13.197 0 0 13.197 -321.43 -1013.1)">
+   <g>
+    <path class="line" d="m31.015 90.916 1.8355-1.7e-4c0.16804-2e-5 0.39172-0.0574 0.49193-0.1102 0.15077-0.0795 0.21018-0.13453 0.28527-0.27418 0 0 2.1954-4.3724 2.3549-4.6352 0.15943-0.26275 0.32153-0.49829 0.59363-0.56219 0.27209-0.0639 0.59935-0.017 0.59935-0.017l-1.0808-2.262c-0.088-0.1841-0.2395-0.28348-0.60831-0.28348-0.3521 0-0.52415 0.15872-0.57932 0.24514z" stroke-linejoin="round"/>
+    <path class="line" d="m34.4 90.919 5.621-3e-3 -2.3396-4.6177c-0.0952-0.18787-0.27352-0.29472-0.49228-0.29671-0.24948-2e-3 -0.41059 0.0621-0.46772 0.17885z"/>
+   </g>
+  </g>
+ </g>
+</svg>
