@@ -5,78 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPG Brasil</title>
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-       body{
-            margin: 0;
-            background: black;
-            color: white;
-        }
-        video{
-            position:fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -100;
-            background: url("{% static '/header3.jpg' %}") no-repeat;
-            transform: translateX(-50%) translateY(-50%);
-            background-size: cover;
-            transition: 1s opacity;
-            opacity: 0.9;
-        }
-        .stop{
-            opacity: 0.5;
-        }
-
-        @media screen and (max-width: 500px){
-            div{width: 70%;}
-        }
-        @media screen and (max-device-width: 800px){
-            html{
-                background: url("{% static '/header3.jpg' %}") no-repeat;
-            }
-            video{
-                visibility: hidden;
-            }
-        }
-
-        .box{
-            position:absolute;
-            width: 35%;
-            height: 100%;
-            top: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.6);
-            box-sizing: border-box;
-        }
-        .box:after{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            content: "";
-            background-image: -webkit-linear-gradient(black 20%, rgb(0, 0, 0) 50%, rgb(0, 0, 0, 0)),
-        -webkit-linear-gradient(90deg, black 0%, rgb(0, 0, 0,0) 5%, rgb(0, 0, 0,0));
-            opacity: 0.6;
-            z-index: -1;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            transform-origin: top left;
-            transform: skewX(-10deg)
-        }
-    </style>
+    <link rel="stylesheet" href="{% static '/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <video id="intro" playsinline muted loop poster="{% static '/header3.jpg' %}">
+    <!-- <video id="intro" playsinline muted loop>
         <source src="{% static '/video4.mp4' %}" type="video/mp4">
-    </video>
+    </video> -->
 
-    <div class="box r-skew">
-               TEST
+    <object id="intro"></object>
+
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="logo">
+                <object>
+                    <embed src="{% static '/logo.svg' %}" type="text/svg">
+                </object>
+            </div>
+            <div class="textLogo">
+                <span class="logoName">
+                    <span class="orange">SPG</span>
+                    <span class="blue">BRASIL</span>
+                </span>
+                <span class="sublogoName blue">
+                    Manutencao Industrial
+                </span>
+            </div>
+        </div>
+        <div class="test">
+            testtesfdsfsd
+        </div>
+        <div class="subtext">
+                We will be back soon! Our website os currently under maintenance.<br>
+                On sera de retour bientot! Notre site est courament en maintenant.<br>
+                Ja voltaremos! Nosso site esta processo de manutencao.
+        </div>
     </div>
     
     <script>
@@ -96,6 +60,11 @@
             video.pause();
             videoFade();
         });
+
+        var maintenance = document.getElementsByClassName('subtext');
+        window.setTimeout(function(){
+            maintenance.style.opacity = 1;
+        }, 2000);
 
         // if(video.paused){
         //     video.play();

@@ -8,10 +8,16 @@
         .box{
             text-align: center;
             padding: 150px 0;
+            transition: all linear 3s;
         }
         .box object embed{
             width: 30%;
             height: 30%;
+        }
+        #element {
+            position: absolute;
+            transition: top 3s linear;
+            top: 0px;
         }
     </style>
 </head>
@@ -21,5 +27,15 @@
             <embed src="../static/logo.svg" type="">
         </object>
     </div>
+
+    <div id="element">I am an element!</div>
+    <script>
+          var element = document.querySelector("#element");
+          var logo = document.querySelector('.box');
+            setTimeout(function () {
+                element.style.top = "200px";
+                logo.style.transform = "translateX(-200px)";
+            }, 2000);
+    </script>
 </body>
 </html>

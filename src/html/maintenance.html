@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPG Brasil</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header id="header">
+        <div class="headerBG"></div>
+    </header>
+
+    <div class="navbar" id="topbar">
+        <span class="left">Copyright SPG BRASIL - 2020</span>
+        <span class="right">+55 (98) 3371 - 14343</span>
+        <span class="right">contato@spgbrasil.com.br</span>
+        <span class="icon right" ><a href="javascript:void(0)" onclick="navbar()"><i class="fa fa-bars"></i></a></span>
+    </div>
+
+    <div class="container">
+        <div class="containerLogo">
+            <div class="logo" id="logoEl">
+                <object>
+                    <embed src="{% static '/logo.svg' %}" type="text/svg">
+                </object>
+            </div>
+            <div class="textLogo" id="txt">
+                <span class="logoName">
+                    <span class="orange">SPG</span>
+                    <span class="blue">BRASIL</span>
+                </span>
+                <span class="sublogoName blue">
+                    Manutencao Industrial
+                </span>
+            </div>
+        </div>
+        <div class="subtext">
+            <ul>
+                <span id="l1">We will be back soon! Our website os currently under maintenance.</span>
+                <span id="l2">On sera de retour bientot! Notre site est courament en maintenance.</span>
+                <span id="l3">Ja voltaremos! Nosso site esta processo de manutencao.</span>
+            </ul>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        function navbar(){
+            var navbar = document.querySelector("#topbar");
+            var node = document.createElement('span');
+            node.id = "node";
+            if(navbar.className == "navbar"){
+                navbar.className += " responsive";
+                navbar.insertBefore(node, navbar.firstChild);
+            }else{
+                navbar.className = "navbar";
+                navbar.removeChild(navbar.firstChild);
+            }
+        }
+
+        var logo = document.querySelector("#logoEl");
+        var text = document.querySelector("#txt");
+        if (window.screen.width <= 500) {
+                setTimeout(function () {
+                    logo.style.transform = "translateX(-130px)";
+                    text.style.transform = "translateX(50px)";
+                }, 3000);
+        }else{
+            setTimeout(function () {
+                logo.style.transform = "translateX(-170px)";
+                text.style.transform = "translateX(50px)";
+            }, 3000);
+        }
+
+
+        setTimeout(function(){
+            text.style.opacity = 1;
+        },4750);
+
+
+    </script>
+</body>
+</html>

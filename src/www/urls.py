@@ -21,7 +21,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.intro, name='intro'),
+    path('', views.maintenance, name='maintenance'),
 ]
 
 # if settings.DEBUG:

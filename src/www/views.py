@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def intro(request):
-    return render(request, 'index.html')
+def maintenance(request):
+    return render(request, 'maintenance.html')
