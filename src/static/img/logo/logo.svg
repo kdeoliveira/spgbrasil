@@ -1,7 +1,7 @@
 <svg id = "logo" version="1.1" viewBox="0 0 118.84 107.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs>
     <style type="text/css">
-    @import url(style.css);
+    @import url(../../css/style.css);
     </style>
   <linearGradient id="linearGradient7064" x1="34.598" x2="38.039" y1="88.417" y2="86.908" gradientTransform="matrix(13.197 0 0 13.197 -328.87 -947.34)" gradientUnits="userSpaceOnUse">
    <stop style="stop-color:#c8b96e" offset="0"/>

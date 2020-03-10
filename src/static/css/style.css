@@ -2,8 +2,8 @@
 
 @font-face {
     font-family: 'Controller';
-    src: url('font/_controller-webfont.woff2') format('woff2'),
-         url('font/_controller-webfont.woff') format('woff');
+    src: url('../font/_controller-webfont.woff2') format('woff2'),
+         url('../font/_controller-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -14,27 +14,6 @@ body{
     font-size: 15px;
     font-weight: lighter;
 }
-/* video{
-    position:fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    background: url("header3.jpg") no-repeat;
-    transform: translateX(-50%) translateY(-50%);
-    background-size: cover;
-    transition: 1s opacity;
-    opacity: 0.9;
-} 
-.stop{
-    opacity: 0.5;
-}s
-*/
-
-
 /* NAVBAR MENU */
 
 .navbar{
@@ -79,7 +58,7 @@ body{
     min-height: 100%;
     width: auto;
     height: auto;
-    background: url("img/img2.jpg") no-repeat;
+    background: url("../img/img2.jpg") no-repeat;
     transform: translateX(-50%);
     transform-origin: bottom left;
     background-size: cover;
@@ -96,8 +75,7 @@ body{
     width: 100%;
     height: 40%;
     z-index: -52;
-    /* box-shadow: inset 0 0 50px -10px black; */
-    background: rgb(158, 156, 145);
+    background: rgb(179, 179, 145);
     transform-origin: bottom right;
     transform: skewY(5deg);
 }
@@ -110,8 +88,6 @@ body{
     right: 0;
     width: 100%;
     height: 40%;
-    /* box-shadow: inset 0 0 50px -10px black; */
-    /* border-radius: 0 0 15% 0; */
     z-index: -50;
     background: rgb(61, 59, 59);
     transform-origin: bottom left;
@@ -127,7 +103,7 @@ body{
 .containerLogo{
     font-family: "Controller";
     position: absolute;
-    top: 20%;
+    top: 17%;
     left: 50%;
     transform: translateX(-50%);
     width: auto;
@@ -178,13 +154,13 @@ body{
     margin: 100px auto;
     padding: 10px 10px 0px 10px;
     width: 50%;
-    height: 30px;
+    height: 50px;
     box-shadow: inset 0 0 25px -5px rgb(61, 59, 59, 0.7);
 }
 
 .subtext::before{
     content:"";
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
     filter: blur(10px);
 }
 
@@ -195,6 +171,7 @@ body{
     padding: 0;
     /* position: relative; */
     text-align: center;
+    font-weight: bold;
 }
 .subtext ul span{
     position: absolute;
