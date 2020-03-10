@@ -38,11 +38,12 @@ body{
 /* NAVBAR MENU */
 
 .navbar{
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .5);
     overflow: hidden;
     font-size: 10px;
     padding: 0 20px;
     color: white;
+    /* z-index: 10; */
 }
 
 .navbar span{
@@ -82,6 +83,7 @@ body{
     transform: translateX(-50%);
     transform-origin: bottom left;
     background-size: cover;
+    z-index: -50;
 }
 
 .headerBG:before{
@@ -92,7 +94,7 @@ body{
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 50%;
+    height: 40%;
     z-index: -52;
     /* box-shadow: inset 0 0 50px -10px black; */
     background: rgb(158, 156, 145);
@@ -107,7 +109,7 @@ body{
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 50%;
+    height: 40%;
     /* box-shadow: inset 0 0 50px -10px black; */
     /* border-radius: 0 0 15% 0; */
     z-index: -50;
