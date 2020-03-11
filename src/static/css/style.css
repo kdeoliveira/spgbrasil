@@ -102,6 +102,7 @@ body{
 
 .containerLogo{
     font-family: "Controller";
+    text-transform: capitalize;
     position: absolute;
     top: 17%;
     left: 50%;
