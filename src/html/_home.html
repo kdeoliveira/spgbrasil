@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body class="onepage">
     <div class="header">
         <video autoplay loop muted>
-            <source src="{% static 'video/video2.mp4' %}" type="video/mp4">
+            <source src="{% static 'video/intro.webm' %}" type="video/webm">
         </video>
     </div>
 
@@ -34,29 +34,29 @@
                     </object>
                 </div>
 
-                <div class="menu_list">
+                <div class="menu_list l-200">
                     <ul class="main_list">
                         <li>Expertise
-                                                            <ul class="dropdown">
-                                                                <li>
-                                                                    Submenu1 fdfdfd
-                                                                    fdfd
-                                                                </li>
-                                                                <li>
-                                                                    Submenu2
-                                                                </li>
-                                                            </ul>
+                            <ul class="dropdown">
+                                <li>
+                                    Submenu1 fdfdfd
+                                    fdfd
+                                </li>
+                                <li>
+                                    Submenu2
+                                </li>
+                            </ul>
                         </li>
                         <li>Service
-                                                            <ul class="dropdown">
-                                                                <li>
-                                                                    Submenu222 fdfdfd
-                                                                    fdfd
-                                                                </li>
-                                                                <li>
-                                                                    Submenufs,fsdn
-                                                                </li>
-                                                            </ul>
+                            <ul class="dropdown">
+                                <li>
+                                    Submenu222 fdfdfd
+                                    fdfd
+                                </li>
+                                <li>
+                                    Submenufs,fsdn
+                                </li>
+                            </ul>
 
                         </li>
                         <li>Group</li>
@@ -69,8 +69,6 @@
                 <canvas class="cv2"></canvas>
                 <canvas class="cv3"></canvas>
                 <canvas class="cv4"></canvas>
-                <canvas class="cv5"></canvas> 
-
             </div>
         </div>
     </div>
@@ -78,7 +76,7 @@
     <div class="info">
         <div class="info_container">
                 <span class="regular_text">
-                    View More
+                    1/4
                 </span>
                 <span class="upper_text">
                     Leadership and Green Developpement
@@ -89,10 +87,21 @@ eaque ipsa quae ab illo inventore veritatis et quasi                </span>
                 <span class="regular_text">
                     Leadership and Green Developpement
                 </span>
+                <span class="invisible_text">
+                    View More
+                </span>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-
+    // $(function(){
+    //     $('.main_list li').hover(function(){
+    //         $('.dropdown li').addClass('dropdown_hover');
+    //     },
+    //     function(){
+    //         $('.dropdown li').removeClass('dropdown_hover');
+    //     });
+    // });
 </script>
 </body>
 </html>

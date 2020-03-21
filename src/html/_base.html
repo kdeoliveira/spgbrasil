@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPG Brasil</title>
+    <link rel="shortcut icon" href="{% static '/img/logo/favicon.ico'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="topmenu">
+        <div class="menu_container">
+            <div class="main_menu">
+                <div class="logo">
+                    <object>
+                        <embed src="{%static '/img/logo/symbol.svg'%}" type="image/svg+xml">
+                    </object>
+                </div>
+                <div class="menu_list">
+                    <ul class="main_list">
+                        <li>Expertise
+                            <ul class="topdropdown">
+                                <li>
+                                    Submenu1 fdfdfd
+                                    fdfd
+                                </li>
+                                <li>
+                                    Submenu2
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Service
+                            <ul class="topdropdown">
+                                <li>
+                                    Submenu222 fdfdfd
+                                    fdfd
+                                </li>
+                                <li>
+                                    Submenufs,fsdn
+                                </li>
+                            </ul>
+    
+                        </li>
+                        <li>Group</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right_menu">
+                <canvas class="cv1"></canvas>
+                <canvas class="cv2"></canvas>
+                <canvas class="cv3"></canvas>
+                <!-- <canvas class="cv4"></canvas> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="top_header">
+        <object class="top_header_picture" type="image/jpg" data="{%static '/img/img3.jpg'%}">
+        </object>
+        <canvas class="left_top_header"></canvas>
+    </div>
+</body>
+</html>

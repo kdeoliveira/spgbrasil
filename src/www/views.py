@@ -5,3 +5,6 @@ def maintenance(request):
 
 def base(request):
     return render(request, '_home.html')
+
+def layout(request):
+    return render(request, '_base.html')
