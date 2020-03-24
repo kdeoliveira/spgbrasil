@@ -441,7 +441,7 @@ body{
     height: 100%;
     object-fit: cover;
     clip-path: polygon(30% 0, 100% 0, 100% 100%, 10% 100%);
-    filter: brightness(50%);
+    filter: brightness(40%);
  }
  .left_top_header{
      position: absolute;
@@ -473,6 +473,43 @@ body{
      width: 80%;
      margin: auto;
      padding: 5%;
-    color: black;
-    background: blanchedalmond;
+     color: black;
+}
+
+.title_container{
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* padding: 0 50px 2px 0; */
+    /* border-bottom: 1px solid #1469a7; */
+    width: fit-content;
+    display: block;
+    color: white;
+}
+.title_container span{
+    display: block;
+    text-align: right;
+}
+
+.light_text{
+    font-size: 20px !important;
+    font-weight: 200 !important;
+}
+
+.main_container{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+
+.footer{
+    min-width: 100%;
+    width: 100%;
+    margin: auto;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #434147;
 }
