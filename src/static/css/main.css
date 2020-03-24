@@ -26,7 +26,9 @@
 
 
 body{
+    font-family: 'Titillium Web', sans-serif;
     margin: 0;
+    padding: 0;
 }
 
 .onepage{
@@ -62,10 +64,13 @@ body{
 
 .topmenu{
     position: absolute;
+    margin: 0;
     top: 0;
     left: 0;
     height: 100px;
+    max-width: 100%;
     width: 100%;
+    z-index: 10;
 }
 
 .darkgrey{
@@ -141,6 +146,8 @@ body{
     width: 30%;
     margin: 0;
     background: transparent;
+        overflow: hidden;
+
 }
 
 .right_menu canvas{
@@ -153,7 +160,8 @@ body{
     background: #2423266e;
     left: 0;
     clip-path: polygon(0 0, 0 100%, 100% 0);
-    width: 150px;
+    width: 50%;
+    max-width: 150px;
     cursor: pointer;
 }
 
@@ -163,23 +171,26 @@ body{
 .right_menu .cv2{
     left: 5px;
     clip-path: polygon(50% 0, 0 100%, 20% 100%, 70% 0);
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     background: #146aa798;
 }
 
 .right_menu .cv3{
     left: 5px;
     clip-path: polygon(70% 100%, 50% 100%, calc(35% + 3px) calc(60% + 11px), calc(40% + 19px) calc(50%));
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     background: #b7a44d94;
 }
 
 .right_menu .cv4{
     visibility: hidden;
-    left: 150px;
+    left: 50%;
     clip-path: polygon(0 50%, 100% 0, 100% 100%);
     background:#2f2d3385;
-    width: 74px;
+    width: 25%;
+    max-width: 74px;
     opacity: 0;
     transition: 1s linear opacity;
 }
@@ -337,7 +348,6 @@ body{
 
 
 .info{
-font-family: 'Titillium Web', sans-serif;
     display: block;
     position: absolute;
     /* background: black; */
@@ -421,8 +431,8 @@ font-family: 'Titillium Web', sans-serif;
      position: relative;
      top: 0;
      right: 0;
-     z-index: -999;
      width: 100%;
+     margin: 0;
      height: 400px;
  }
 
@@ -442,3 +452,27 @@ font-family: 'Titillium Web', sans-serif;
      background: #434147;
      z-index: -9999;
  }
+
+
+ .breadcrumb{
+     position: absolute;
+     background: rgba(0,0,0,0.5);
+     width: auto;
+     height: 30px;
+     right: 20px;
+     bottom: 20px;
+     color: white;
+     line-height: 30px;
+     padding: 0 10px;
+     border-radius: 5px;
+ }
+
+ /* Container _BASE layout  */
+
+ .container{
+     width: 80%;
+     margin: auto;
+     padding: 5%;
+    color: black;
+    background: blanchedalmond;
+}
