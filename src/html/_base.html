@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,6 +76,26 @@
 
 <div class="container">
     <div class="main_container">
+
+        <a href="{% url 'admin:index' %}">{% url 'admin:index' %} - Admin Page</a>
+
+        {% get_current_language as LANGUAGE_CODE %}
+        {{LANGUAGE_CODE}}
+
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select
+                name="language"> {% get_current_language as LANGUAGE_CODE %} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                            selected{% endif %}> {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Go"/>
+        </form>
+
         …the application of resins and protective coatings (paint, enamel paints, etc.) on industrial assets in many sectors (marine, industry, structures, offshore, energy) is conducted with precise control by qualified teams complying with safety and ecological requirements, regulations and meeting the imperatives of the job (costs, turnaround times, quality).        <br>
 
         Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32        <br>
