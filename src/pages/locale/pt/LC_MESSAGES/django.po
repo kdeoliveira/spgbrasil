@@ -18,17 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: html/_base.html:105
-msgid "HomePage"
+#: pages/views.py:13
+msgid "Homepage"
 msgstr ""
-
-#: html/_base.html:107
-msgid "vxvfgdfb"
-msgstr "35437165115"
-
-#: www/urls.py:30
-msgid "admin/"
-msgstr "administrador/"
-
-msgid "Base Layout for Template"
-msgstr "essayage"

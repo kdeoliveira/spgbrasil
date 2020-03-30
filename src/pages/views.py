@@ -18,18 +18,20 @@ class HomeView(TemplateView):
 
 class LayoutView(TemplateView):
     template_name = "_base.html"
-    base_file = template_name[:-5]
+    base_file = "base"
 
     def get_context_data(self, **kwargs):
-        try: 
+        try:
             page_model = Page.objects.get(name = self.base_file)
-            content_model = Content.objects.get(page = page_model)
+            content_model = Content.objects.filter(page_name = page_model)
         except:
-            page_model = None
-            content_model = None
+            page_model=None
+            content_model=None
+
 
         context = super().get_context_data(**kwargs)
         context = {
+            'test' : 'teste',
             'page' : page_model,
             'content' : content_model,
         }

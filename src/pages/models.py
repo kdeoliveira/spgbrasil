@@ -1,5 +1,10 @@
 from django.db import models
 
+# Erase DB 
+# python manage.py migrate your_app zero
+# Roll back local REPO
+# git reset --hard spgbrasil/dev 
+
 
 class Page(models.Model):
     name = models.CharField(max_length=50, unique=True)
