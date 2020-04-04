@@ -1,9 +1,9 @@
 <svg id = "logo" version="1.1" viewBox="0 0 118.84 107.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs>
     <style type="text/css">
-    @import url(../../css/style.css);
+    @import url(../../css/main.css);
     </style>
-  <linearGradient id="linearGradient7064" x1="34.598" x2="38.039" y1="88.417" y2="86.908" gradientTransform="matrix(13.197 0 0 13.197 -328.87 -947.34)" gradientUnits="userSpaceOnUse">
+  <!-- <linearGradient id="linearGradient7064" x1="34.598" x2="38.039" y1="88.417" y2="86.908" gradientTransform="matrix(13.197 0 0 13.197 -328.87 -947.34)" gradientUnits="userSpaceOnUse">
    <stop style="stop-color:#c8b96e" offset="0"/>
    <stop style="stop-color:#ac9845" offset=".54819"/>
    <stop style="stop-color:#ddd49b" offset=".7912"/>
@@ -14,10 +14,10 @@
    <stop style="stop-color:#24b0df" offset=".15329"/>
    <stop style="stop-color:#1671a0" offset=".38514"/>
    <stop style="stop-color:#134a80" offset="1"/>
-  </linearGradient>
+  </linearGradient> -->
  </defs>
  <g transform="translate(-80.433 -144.97)" class="logomarca">
-  <path id="logoOrange" d="m80.433 252.45 24.222-2e-3c2.2176-2.6e-4 5.1694-0.75748 6.4918-1.4543 1.9897-1.0491 2.7737-1.7754 3.7646-3.6183 0 0 28.973-57.701 31.077-61.169 2.1039-3.4674 4.2431-6.5758 7.8339-7.419 3.5907-0.84326 7.9094-0.22434 7.9094-0.22434l-14.263-29.851c-1.1613-2.4295-3.1606-3.741-8.0276-3.741-4.6465 0-6.917 2.0946-7.6451 3.235z" stroke-linejoin="round"/>
-  <path id="logoBlue" d="m125.09 252.48 74.179-0.0396-30.875-60.938c-1.2563-2.4793-3.6096-3.8893-6.4964-3.9156-3.2923-0.0264-5.5072 1.1686-6.2668 2.4547z"/>
+  <path id="logoWhite" d="m80.433 252.45 24.222-2e-3c2.2176-2.6e-4 5.1694-0.75748 6.4918-1.4543 1.9897-1.0491 2.7737-1.7754 3.7646-3.6183 0 0 28.973-57.701 31.077-61.169 2.1039-3.4674 4.2431-6.5758 7.8339-7.419 3.5907-0.84326 7.9094-0.22434 7.9094-0.22434l-14.263-29.851c-1.1613-2.4295-3.1606-3.741-8.0276-3.741-4.6465 0-6.917 2.0946-7.6451 3.235z" stroke-linejoin="round"/>
+  <path id="logoWhite" d="m125.09 252.48 74.179-0.0396-30.875-60.938c-1.2563-2.4793-3.6096-3.8893-6.4964-3.9156-3.2923-0.0264-5.5072 1.1686-6.2668 2.4547z"/>
  </g>
 </svg>

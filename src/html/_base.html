@@ -1,6 +1,6 @@
 {% load static %}
 {% load i18n %}
-
+{% load translation %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +11,8 @@
     <link rel="shortcut icon" href="{% static '/img/logo/favicon.ico'%}" type="image/x-icon">
     <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/30df96d222.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div class="topmenu">
@@ -18,44 +20,51 @@
             <div class="main_menu">
                 <div class="logo">
                     <object>
+                        <a href="{% url 'home' %}"></a>
+
                         <embed src="{%static '/img/logo/symbol.svg'%}" type="image/svg+xml">
                     </object>
                 </div>
                 <div class="menu_list">
                     <ul class="main_list">
-                        <li>Expertise
+                        <li><a href="{% url 'layout'%}">{% trans "Expertise" %}</a>
                             <ul class="topdropdown">
-                                <li>
-                                    Submenu1 fdfdfd
-                                    fdfd
-                                </li>
-                                <li>
-                                    Submenu2
-                                </li>
+                                <li><a href="{% url 'group'%}">{% trans "Sandblasting & Coating" %}</a></li>
+                                <li><a href="{% url 'group'%}">{% trans "Industrial Handling" %}</a></li>
+                                <li><a href="{% url 'group'%}">{% trans "Pavement" %}</a></li>
+
                             </ul>
                         </li>
-                        <li>Service
+                        <li><a href="{% url 'group'%}">{% trans "Sectors" %}</a>
                             <ul class="topdropdown">
-                                <li>
-                                    Submenu222 fdfdfd
-                                    fdfd
-                                </li>
-                                <li>
-                                    Submenufs,fsdn
-                                </li>
+                                    <li><a href="{% url 'group'%}">{% trans "Marine and Offshore" %}</a></li>
+                                    <li><a href="{% url 'group'%}">{% trans "Industry and Infrastructure" %}</a></li>
                             </ul>
     
                         </li>
-                        <li>Group</li>
-                        <li>Contact</li>
+                        <li><a href="{% url 'group'%}">{% trans "Group" %}</a></li>
+                        <li><a href="{% url 'layout'%}">{% trans "Support" %}</a></li>
                     </ul>
                 </div>
             </div>
+
             <div class="right_menu">
                 <canvas class="cv1"></canvas>
-                <canvas class="cv2"></canvas>
-                <canvas class="cv3"></canvas>
+                <!-- <canvas class="cv2"></canvas> -->
+                <!-- <canvas class="cv3"></canvas> -->
                 <!-- <canvas class="cv4"></canvas> -->
+                <ul class="secondary_menu">
+                    <li>
+                        <a class="white" href="{% url 'admin:index' %}">
+                            <span class="hide" >Account&nbsp;&nbsp;</span><i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white" href="http://e.spgbrasil.com.br">
+                            <span class="hide">Webmail&nbsp;&nbsp;</span><i class="fas fa-envelope"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -77,43 +86,92 @@
 <div class="container">
     <div class="main_container">
 
-        <a href="{% url 'admin:index' %}">{% url 'admin:index' %} - Admin Page</a>
-
-        {% get_current_language as LANGUAGE_CODE %}
-        {{LANGUAGE_CODE}}
-
-        <form action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
-            <input name="next" type="hidden" value="{{ redirect_to }}">
-            <select
-                name="language"> {% get_current_language as LANGUAGE_CODE %} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %}
-                {% for language in languages %}
-                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
-                            selected{% endif %}> {{ language.name_local }} ({{ language.code }})
-                    </option>
-                {% endfor %}
-            </select>
-            <input type="submit" value="Go"/>
-        </form>
-
+        {% autoescape off %}
+        {% for x in content%}
+            {{x.content_text|translation:x.content_type}}  
+        {% endfor %}
+        {% endautoescape%}
       <br>
-
-
-
-      {% trans page.title %}
-
-{% trans "HomePage" %}
-
-{% trans "vxvfgdfb" %}
-      
+      <div class="img_section">
+        <div class="row text-center">
+          <div class="flex-l">
+            <a href="#">
+                <img src="{% static 'img/img.jpg'%}">
+                <span>Coating and Sandblasting</span>
+            </a>
+            </div>
+            <div class="flex-l">
+            <a href="#">
+                <img src="{% static 'img/img2.jpg'%}">
+                <span>Industry and infrastructure</span>
+            </a>
+            </div>
+            <div class="flex-l">
+            <a href="#">
+                <img src="{% static 'img/img3.jpg'%}">
+                <span>Marine and Offshore</span>
+            </a>
+            </div>
+        </div>
+      </div>
     </div>
 
 
 </div>
 
-<div class="footer">
-    SPG BRASIL LTDA | EN FR BR ES | Menu1 Menu2 Menu3
+<div id="footer">
+    <div class="row text-center">
+        <div class="flex-l-3">
+            {% trans "Change Language:" %}
+            <form action="{% url 'set_language' %}" method="post" class="link-lang">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+            {% get_current_language as LANGUAGE_CODE %} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <button class="a-link white" name="language" value="{{language.code}}" type="submit"
+                {% if language.code == LANGUAGE_CODE %} disabled {% endif %}
+                >{{language.code}}</button>
+            {% endfor %}
+            </form>            
+        </div>
+        <div class="flex-l-3">
+            <object>
+                <embed src="{%static '/img/logo/logo.svg'%}" type="image/svg+xml">
+            </object>       
+        </div>
+        <div class="flex-l-3">
+           Contact Us on Facebook | Instagram | Youtube
+        </div>
+        <div class="flex-l-6 text-left text-small">
+            <strong>SUPPORT</strong><br>
+            <span class="white block">Rua Santo Antonio, Casa 16</span>
+            <span class="white block">CEP: 65176-100, Sao Luis, MA, Brasil</span>
+            <span class="white block">Tel: +55 (98) 3330-2124 </span>
+            <a class="white block" href="#">contato@spgbrasil.com.br</a>      
+        </div>
+        <div class="flex-l-6 text-left text-small">
+            <strong>EXPERTISE</strong><br>
+            <a class="white block" href="#">Coating and Sandblasting</a>
+            <a class="white block" href="#">Marine and offshore</a>
+            <a class="white block" href="#">Industry adn Infrastructure</a>      
+        </div>
+        <div class="flex-l-6 text-left text-small">
+            <strong>SECTORS</strong><br>
+            <a class="white block" href="#">Infrastructure and Pavement</a>
+            <a class="white block" href="#">Marine and offshore</a>
+            <a class="white block" href="#">Industry</a>      
+        </div>
+        <div class="flex-l-6 text-left text-small">
+            <strong>EMPLOYEE</strong><br>
+            <a class="white block" href="{% url 'admin:index' %}">Admin</a>
+            <a class="white block" href="http://e.spgbrasil.com.br/">Webmail</a>
+            <a class="white block" href="#">FMS System</a>       
+        </div>
+        
+        <div class="flex-l-1">
+            All copyrights reserved to SPG BRASIL 2020
+        </div>
+    </div>
 </div>
-
 </body>
 </html>

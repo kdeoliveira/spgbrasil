@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="{% static '/img/logo/favicon.ico'%}" type="image/x-icon">
     <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/30df96d222.js" crossorigin="anonymous"></script>
 </head>
 <body class="onepage">
     <div class="header">
@@ -37,39 +38,41 @@
 
                 <div class="menu_list l-200">
                     <ul class="main_list">
-                        <li>Expertise
+                        <li><a href="{% url 'layout'%}">{% trans "Expertise" %}</a>
                             <ul class="dropdown">
-                                <li>
-                                    Submenu1 fdfdfd
-                                    fdfd
-                                </li>
-                                <li>
-                                    Submenu2
-                                </li>
-                            </ul>
-                        </li>
-                        <li>Service
-                            <ul class="dropdown">
-                                <li>
-                                    Submenu222 fdfdfd
-                                    fdfd
-                                </li>
-                                <li>
-                                    Submenufs,fsdn
-                                </li>
-                            </ul>
+                                <li><a href="{% url 'group'%}">{% trans "Sandblasting & Coating" %}</a></li>
+                                <li><a href="{% url 'group'%}">{% trans "Industrial Handling" %}</a></li>
+                                <li><a href="{% url 'group'%}">{% trans "Pavement" %}</a></li>
 
+                            </ul>
                         </li>
-                        <li>Group</li>
-                        <li>Contact</li>
+                        <li><a href="{% url 'group'%}">{% trans "Sectors" %}</a>
+                            <ul class="dropdown">
+                                    <li><a href="{% url 'group'%}">{% trans "Marine and Offshore" %}</a></li>
+                                    <li><a href="{% url 'group'%}">{% trans "Industry and Infrastructure" %}</a></li>
+                            </ul>
+    
+                        </li>
+                        <li><a href="{% url 'group'%}">{% trans "Group" %}</a></li>
+                        <li><a href="{% url 'layout'%}">{% trans "Support" %}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="right_menu">
                 <canvas class="cv1"></canvas>
-                <canvas class="cv2"></canvas>
-                <canvas class="cv3"></canvas>
-                <canvas class="cv4"></canvas>
+                <!-- <canvas class="cv2"></canvas> -->
+                <!-- <canvas class="cv3"></canvas> -->
+                <ul class="secondary_menu">
+                    <li>
+                        <a class="white" href="{% url 'admin:index' %}">
+                            <span class="hide">Account&nbsp;&nbsp;</span><i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white" href="http://e.spgbrasil.com.br">
+                            <span class="hide">Webmail&nbsp;&nbsp;</span><i class="fas fa-envelope"></i>
+                        </a>
+                    </li>
             </div>
         </div>
     </div>
