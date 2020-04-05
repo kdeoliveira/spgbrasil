@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/30df96d222.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </head>
 <body class="onepage">
     <div class="header">
@@ -36,10 +38,11 @@
                     </object>
                 </div>
 
-                <div class="menu_list l-200">
+                <div id="menu" class="menu_list l-200">
                     <ul class="main_list">
+                        <li class="mobile_icon show"><i class="fas fa-bars"></i></li>
                         <li><a href="{% url 'layout'%}">{% trans "Expertise" %}</a>
-                            <ul class="dropdown">
+                            <ul class="topdropdown">
                                 <li><a href="{% url 'group'%}">{% trans "Sandblasting & Coating" %}</a></li>
                                 <li><a href="{% url 'group'%}">{% trans "Industrial Handling" %}</a></li>
                                 <li><a href="{% url 'group'%}">{% trans "Pavement" %}</a></li>
@@ -47,7 +50,7 @@
                             </ul>
                         </li>
                         <li><a href="{% url 'group'%}">{% trans "Sectors" %}</a>
-                            <ul class="dropdown">
+                            <ul class="topdropdown">
                                     <li><a href="{% url 'group'%}">{% trans "Marine and Offshore" %}</a></li>
                                     <li><a href="{% url 'group'%}">{% trans "Industry and Infrastructure" %}</a></li>
                             </ul>
@@ -97,15 +100,33 @@ eaque ipsa quae ab illo inventore veritatis et quasi                </span>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script>
-    // $(function(){
-    //     $('.main_list li').hover(function(){
-    //         $('.dropdown li').addClass('dropdown_hover');
-    //     },
-    //     function(){
-    //         $('.dropdown li').removeClass('dropdown_hover');
-    //     });
-    // });
-</script>
+    <script>
+        $(document).ready(function(){
+          if(window.innerWidth < 750){
+            $('#menu').addClass('mobile_menu').removeClass('menu_list');
+            $('.mobile_menu').css('top','unset').css('bottom','0');
+            $('.mobile_menu').removeClass('l-200')
+
+          }
+        });
+        
+        $(window).resize(function(){
+          if(window.innerWidth < 750){
+            $('#menu').addClass('mobile_menu').removeClass('menu_list');
+            $('.mobile_menu').removeClass('l-200')
+          }else{
+            $('#menu').addClass('menu_list').removeClass('mobile_menu');
+            $('.mobile_menu').addClass('l-200')
+          }
+        });
+        
+        // if(window.innerHeight < window.innerWidth){
+        //     alert("Please use Landscape!");
+        // }
+        
+        $('.mobile_icon').click(function(){
+            $('.mobile_menu .main_list>li:not(:first-child)').toggle('display').css('display','block');
+        });
+        </script>
 </body>
 </html>

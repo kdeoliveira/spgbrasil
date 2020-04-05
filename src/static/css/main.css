@@ -38,6 +38,10 @@ body{
     height: 100%;
 }
 
+.show{
+    display: none;
+}
+
 .header{
     position: fixed;
     top: 0;
@@ -162,7 +166,7 @@ body{
     height: 100px;
     width: 100%;
     /* overflow: hidden; */
-    z-index: -10;
+    z-index: 999;
 }
 
 .menu_container{
@@ -301,6 +305,62 @@ body{
     display: inline-block;
 }
 
+/* MOBILE VERSION */
+.mobile_menu{
+    margin: 0;
+    position: absolute;
+    width: 50%;
+    right: 0;
+    /* transform: translateX(-50%); */
+    height: auto;
+    top: 0;
+    color: white;
+}
+.mobile_menu .main_list{
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    list-style-type: none;
+    text-indent: 0;
+    padding: 0;
+    margin: 0;
+}
+.mobile_menu .main_list > li{
+    display: block;
+    height: 100px;
+    line-height: 100px;
+}
+.mobile_menu .main_list > li:not(:first-child){
+    background: #2423266e;
+
+}
+.mobile_menu .main_list > li:hover{
+    background: #242326ea;
+}
+.mobile_menu .main_list a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: normal;
+}
+
+.mobile_menu .main_list>li:not(:first-child){
+    display: none;
+}
+.mobile_menu .main_list > li:hover > .dropdown{
+    visibility: visible;
+    opacity: 1;
+}
+.mobile_icon{
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+.mobile_icon:hover{
+    color: grey;
+}
+
 
 .menu_list{
     margin: 0;
@@ -334,7 +394,7 @@ body{
 }
 
 .menu_list .main_list > li{
-    display: block;
+    /* display: block; */
     float: left;
     box-sizing: border-box;
     /* border: rgba(58, 46, 46, 0.1) solid 1px; */
@@ -342,7 +402,7 @@ body{
     padding: 0 20px;
     height: 100px;  /* CHECK MENU BAR HEIGHT*/
     line-height: 100px;
-    transition: 1s background linear;
+    transition: 0.5s background linear;
     cursor: pointer;
 }
 
@@ -359,7 +419,7 @@ body{
 }
 
 .menu_list .main_list li:hover > .dropdown{
-    visibility: visible;
+    display: block;
     opacity: 1;
 }
 
@@ -373,7 +433,7 @@ body{
     padding: 0;
     margin: 0;
     width: 100% !important;
-    visibility: hidden;
+    display: none;
 }
 .dropdown>li{
     height: 50px;
@@ -751,10 +811,22 @@ a.white:hover{
 
  /* SMALL SCREENS */
 
- @media screen and (max-width: 850px){
-    span.hide{
+ @media screen and (max-width: 750px){
+    .hide{
         display: none;
     }
+    .show{
+        display: block !important;
+    }
+    .logo .logo_text{
+        display: none;
+    }
+    .menu_list{
+        left: 5px;
+    }
+}
+
+@media screen and (max-width: 900px){
     .logo .logo_text{
         display: none;
     }

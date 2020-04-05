@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/30df96d222.js" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <div class="topmenu">
@@ -25,8 +25,9 @@
                         <embed src="{%static '/img/logo/symbol.svg'%}" type="image/svg+xml">
                     </object>
                 </div>
-                <div class="menu_list">
+                <div id="menu" class="menu_list">
                     <ul class="main_list">
+                        <li class="mobile_icon show"><i class="fas fa-bars"></i></li>
                         <li><a href="{% url 'layout'%}">{% trans "Expertise" %}</a>
                             <ul class="topdropdown">
                                 <li><a href="{% url 'group'%}">{% trans "Sandblasting & Coating" %}</a></li>
@@ -140,22 +141,26 @@
             </object>       
         </div>
         <div class="flex-l-3">
-           Contact Us on Facebook | Instagram | Youtube
+            <!-- font awesone -->
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-instagram"></i>
+
         </div>
-        <div class="flex-l-6 text-left text-small">
+        <div class="flex-l-6 text-left text-small hide">
             <strong>SUPPORT</strong><br>
             <span class="white block">Rua Santo Antonio, Casa 16</span>
             <span class="white block">CEP: 65176-100, Sao Luis, MA, Brasil</span>
             <span class="white block">Tel: +55 (98) 3330-2124 </span>
             <a class="white block" href="#">contato@spgbrasil.com.br</a>      
         </div>
-        <div class="flex-l-6 text-left text-small">
+        <div class="flex-l-6 text-left text-small hide">
             <strong>EXPERTISE</strong><br>
             <a class="white block" href="#">Coating and Sandblasting</a>
             <a class="white block" href="#">Marine and offshore</a>
             <a class="white block" href="#">Industry adn Infrastructure</a>      
         </div>
-        <div class="flex-l-6 text-left text-small">
+        <div class="flex-l-6 text-left text-small hide">
             <strong>SECTORS</strong><br>
             <a class="white block" href="#">Infrastructure and Pavement</a>
             <a class="white block" href="#">Marine and offshore</a>
@@ -173,5 +178,30 @@
         </div>
     </div>
 </div>
+<script>
+$(document).ready(function(){
+  if(window.innerWidth < 800){
+    $('#menu').addClass('mobile_menu').removeClass('menu_list');
+  }
+});
+
+$(window).resize(function(){
+          if(window.innerWidth < 750){
+            $('#menu').addClass('mobile_menu').removeClass('menu_list');
+            $('.mobile_menu').removeClass('l-200')
+          }else{
+            $('#menu').addClass('menu_list').removeClass('mobile_menu');
+            $('.mobile_menu').addClass('l-200')
+          }
+        });
+
+// if(window.innerHeight < window.innerWidth){
+//     alert("Please use Landscape!");
+// }
+
+$('.mobile_icon').click(function(){
+    $('.mobile_menu .main_list>li:not(:first-child)').toggle('display').css('display','block');
+});
+</script>
 </body>
 </html>
