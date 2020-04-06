@@ -1,0 +1,18 @@
+{% extends '_base.html'%}
+
+{% load static %}
+{% load i18n %}
+{% load translation %}
+
+{% block container %}
+
+
+{% autoescape off %}
+{% for x in content%}
+    {{x.content_text|translation:x.content_type}}  
+{% endfor %}
+{% endautoescape%}
+
+{{base_url}}
+
+{% endblock %}

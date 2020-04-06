@@ -41,23 +41,23 @@
                 <div id="menu" class="menu_list l-200">
                     <ul class="main_list">
                         <li class="mobile_icon show"><i class="fas fa-bars"></i></li>
-                        <li><a href="{% url 'layout'%}">{% trans "Expertise" %}</a>
+                        <li><a href="{% url 'expertise'%}">{% trans "Expertise" %}</a>
                             <ul class="topdropdown">
-                                <li><a href="{% url 'group'%}">{% trans "Sandblasting & Coating" %}</a></li>
-                                <li><a href="{% url 'group'%}">{% trans "Industrial Handling" %}</a></li>
+                                <li><a href="{% url 'expertise_details' 'coating'%}">{% trans "Sandblasting & Coating" %}</a></li>
+                                <li><a href="{% url 'sector_details' 'industry' %}"> Test indsutrial Handling </a></li>
                                 <li><a href="{% url 'group'%}">{% trans "Pavement" %}</a></li>
-
                             </ul>
                         </li>
-                        <li><a href="{% url 'group'%}">{% trans "Sectors" %}</a>
+                        <li><a href="{% url 'sectors'%}">{% trans "Sectors" %}</a>
                             <ul class="topdropdown">
                                     <li><a href="{% url 'group'%}">{% trans "Marine and Offshore" %}</a></li>
-                                    <li><a href="{% url 'group'%}">{% trans "Industry and Infrastructure" %}</a></li>
+                                    <li><a href="{% url 'sector_details' 'industry' %}"> Indsutrial & Oil and Gas</a></li>
+                                    <li><a href="{% url 'sector_details' 'infrastructure'%}">{% trans "Civil Infrastructure" %}</a></li>
                             </ul>
     
                         </li>
                         <li><a href="{% url 'group'%}">{% trans "Group" %}</a></li>
-                        <li><a href="{% url 'layout'%}">{% trans "Support" %}</a></li>
+                        <li><a href="{% url 'green'%}">{% trans "Green" %}</a></li>
                     </ul>
                 </div>
             </div>

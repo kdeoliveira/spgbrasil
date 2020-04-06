@@ -1,0 +1,43 @@
+{% extends '_base.html'%}
+
+{% load static %}
+{% load i18n %}
+{% load translation %}
+
+
+
+{% block container %}
+
+
+{% autoescape off %}
+{% for x in content%}
+    {{x.content_text|translation:x.content_type}}  
+{% endfor %}
+{% endautoescape%}
+
+
+<br>
+<div class="img_section">
+<div class="row text-center">
+  <div class="flex-l">
+    <a href="#">
+        <img src="{% static 'img/img.jpg'%}">
+        <span>Coating and Sandblasting</span>
+    </a>
+    </div>
+    <div class="flex-l">
+    <a href="#">
+        <img src="{% static 'img/img2.jpg'%}">
+        <span>Industry and infrastructure</span>
+    </a>
+    </div>
+    <div class="flex-l">
+    <a href="#">
+        <img src="{% static 'img/img3.jpg'%}">
+        <span>Marine and Offshore</span>
+    </a>
+    </div>
+</div>
+</div>
+
+{% endblock %}
