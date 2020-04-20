@@ -9,6 +9,11 @@ from django.template.context_processors import request
 
 class Page(models.Model):
     name = models.SlugField(max_length=50, unique=True)
+    lang = models.CharField(max_length=2, choices=[
+        ('en','English'),
+        ('fr', 'Francais'),
+        ('pt', 'Portugues'),
+    ])
     title = models.CharField(max_length=60)
     header_title = models.CharField(max_length=60)
     header_subtitle = models.CharField(max_length=60, blank=True)

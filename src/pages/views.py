@@ -5,6 +5,9 @@ from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.template.loader import render_to_string
+from django.http import HttpResponse
+from django.utils import translation
+
 
 sentence = 'teste de fdsfsdfsdf'
 output = _(sentence)
@@ -82,24 +85,37 @@ class PageList(ListView):
         return context
 
 class PageDetail(DetailView):
-    model = Page
     base_url = ''
-
     template_name_field = ['pages/simple_d.html','pages/complex_d.html',]
 
     slug_url_kwarg = 'url_page'
     slug_field = 'name'
 
     url_templates ={
-        'sectors': ['industry', 'marine', 'infrastructure'],
+        'sectors': ['industry', 'industria', 'marine', 'infrastructure'],
         'expertise': ['coating', 'pavement', 'handling'],
     }
 
-    def get_template_names(self):
-        
-        url_value = (self.request.path).split('/')
-        self.base_url = url_value[-1]        
+    def dispatch(self, request, *args, **kwargs):
+        # if translation.LANGUAGE_SESSION_KEY in request.session:
+        #     del request.session[translation.LANGUAGE_SESSION_KEY]
+        url_value = (request.path).strip('/').split('/')
+        print(url_value)
+        self.base_url = url_value[-1]
+        try:
+            self.queryset = Page.objects.filter(lang = translation.get_language())
+        except Exception:
+            print("page does not have langauge "+(request.path).split('/')[1])
+            request.status_code = 404
 
+        dispatch_value = super(PageDetail, self).dispatch(request,*args,**kwargs)
+        
+        return dispatch_value
+
+
+
+
+    def get_template_names(self):
         if self.base_url in self.url_templates['sectors']:
             return self.template_name_field[0]
         elif self.base_url in self.url_templates['expertise']:
@@ -107,18 +123,14 @@ class PageDetail(DetailView):
 
         # object_list #
     def get_context_data(self, *args, **kwargs):
-
-        url_value = (self.request.path).split('/')
-        self.base_url = url_value[-1]        
-
         try:
+            print(self.base_url)
             page_model = Page.objects.get(name = self.base_url)
             content_model = Content.objects.filter(page_name = page_model)
+            print(content_model)
         except:
             page_model=None
             content_model=None
-
-
 
         context = super(PageDetail, self).get_context_data(*args,**kwargs)
 

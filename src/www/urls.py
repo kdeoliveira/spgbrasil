@@ -27,9 +27,11 @@ urlpatterns = [
 
 
 urlpatterns += i18n_patterns(
-    path(gettext_lazy('admin/'), admin.site.urls),
-    path('', include('pages.urls')),
-    path('', views.maintenance, name='maintenance'),
+    path(gettext_lazy("admin/"), admin.site.urls),
+    path('', include('pages.urls', namespace="website")),
     prefix_default_language=True
-)# if settings.DEBUG:
-#     urlpatterns += static(settings.MEDIA_URL, document_root = settings.STATIC_ROOT)
+)
+if settings.DEBUG:
+     urlpatterns += static(settings.MEDIA_URL, document_root = settings.STATIC_ROOT)
+
+print("teste")

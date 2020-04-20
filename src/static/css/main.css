@@ -706,8 +706,9 @@ a:hover{
 .link-lang{
     display: inline-block;
     margin: 0;
-    padding: 0;
+    padding: 0 2px;
 }
+
 button.a-link{
     background: none;
     border: none;
@@ -731,6 +732,10 @@ button.a-link:disabled{
 }
 a.white:hover{
     color: rgb(160, 141, 112)
+}
+a.disabled{
+    cursor: default;
+    color: rgb(160, 141, 112) !important;
 }
 .no-link{
     text-decoration: none;
@@ -812,6 +817,9 @@ a.white:hover{
  /* SMALL SCREENS */
 
  @media screen and (max-width: 750px){
+     body{
+         width: 100%;
+     }
     .hide{
         display: none;
     }

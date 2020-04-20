@@ -20,7 +20,7 @@
             <div class="main_menu">
                 <div class="logo">
                     <object>
-                        <a href="{% url 'home' %}"></a>
+                        <a href="{% url 'website:home' %}"></a>
 
                         <embed src="{%static '/img/logo/symbol.svg'%}" type="image/svg+xml">
                     </object>
@@ -28,23 +28,24 @@
                 <div id="menu" class="menu_list">
                     <ul class="main_list">
                         <li class="mobile_icon show"><i class="fas fa-bars"></i></li>
-                        <li><a href="{% url 'expertise'%}">{% trans "Expertise" %}</a>
+                        <li><a href="{% url 'website:expertise'%}">{% trans "Expertise" %}</a>
                             <ul class="topdropdown">
-                                <li><a href="{% url 'expertise_details' 'coating'%}">{% trans "Sandblasting & Coating" %}</a></li>
-                                <li><a href="{% url 'sector_details' 'industry' %}"> Test indsutrial Handling </a></li>
-                                <li><a href="{% url 'group'%}">{% trans "Pavement" %}</a></li>
+                                <li><a href="{% url 'website:expertise_details' 'coating'|slug_trans %}">{% trans "Sandblasting & Coating" %}</a></li>
+                                <li><a href="{% url 'website:expertise_details' 'industry' %}"> Test indsutrial Handling </a></li>
+                                <li><a href="{% url 'website:group'%}">{% trans "Pavement" %}</a></li>
                             </ul>
                         </li>
-                        <li><a href="{% url 'sectors'%}">{% trans "Sectors" %}</a>
+                        <li><a href="{% url 'website:sectors'%}">{% trans "Sectors" %}</a>
                             <ul class="topdropdown">
-                                    <li><a href="{% url 'sector_details' 'marine' %}">{% trans "Marine and Offshore" %}</a></li>
-                                    <li><a href="{% url 'sector_details' 'industry' %}"> Indsutrial & Oil and Gas</a></li>
-                                    <li><a href="{% url 'sector_details' 'infrastructure'%}">{% trans "Civil Infrastructure" %}</a></li>
+                                    <li><a href="{% url 'website:sector_details' 'marine' %}">{% trans "Marine and Offshore" %}</a></li>
+                                    <li>
+                                        <a href="{% url 'website:sector_details' 'industry'|slug_trans %}"> Indsutrial & Oil and Gas</a></li>
+                                    <li><a href="{% url 'website:sector_details' 'infrastructure'%}">{% trans "Civil Infrastructure" %}</a></li>
                             </ul>
     
                         </li>
-                        <li><a href="{% url 'group'%}">{% trans "Group" %}</a></li>
-                        <li><a href="{% url 'green'%}">{% trans "Green" %}</a></li>
+                        <li><a href="{% url 'website:group'%}">{% trans "Group" %}</a></li>
+                        <li><a href="{% url 'website:green'%}">{% trans "Green" %}</a></li>
                     </ul>
                 </div>
             </div>
@@ -99,16 +100,11 @@
     <div class="row text-center">
         <div class="flex-l-3">
             {% trans "Change Language:" %}
-            <form action="{% url 'set_language' %}" method="post" class="link-lang">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}">
-            {% get_current_language as LANGUAGE_CODE %} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %}
-            {% for language in languages %}
-                <button class="a-link white" name="language" value="{{language.code}}" type="submit"
-                {% if language.code == LANGUAGE_CODE %} disabled {% endif %}
-                >{{language.code}}</button>
+            {% get_current_language as CURRENT_LANG %}
+            {%  get_language_info_list for LANGUAGES as languages %}
+            {% for lang_code in languages%}
+            <a rel="alternate" {% if lang_code.code == CURRENT_LANG %} class="disabled link-lang" {% else %} href="{% change_lang lang_code.code %}" class="white link-lang" {% endif %} hreflang="{{lang_code.code}}">{{lang_code.code|upper}}</a>
             {% endfor %}
-            </form>            
         </div>
         <div class="flex-l-3">
             <object>

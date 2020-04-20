@@ -13,6 +13,10 @@
 {% endfor %}
 {% endautoescape%}
 
-{{base_url}}
+{% blocktrans trimmed%}
+    {{ page.title }}
+{% endblocktrans %}
+
+{% trans page.title %}
 
 {% endblock %}
