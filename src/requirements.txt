@@ -17,7 +17,7 @@ cryptography==2.1.4
 cupshelpers==1.0
 defer==1.0.6
 distro-info===0.18ubuntu0.18.04.1
-Django==2.0.7
+Django==2.2.21
 django-bootstrap-breadcrumbs==0.9.2
 django-view-breadcrumbs==0.1.0
 Flask==1.1.1
